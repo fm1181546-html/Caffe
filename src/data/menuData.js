@@ -25,8 +25,8 @@ import imgOrangeLokachino from '../assets/img/Orangecino.jpg';
 import imgFrenchPress from '../assets/img/French Press.jpg';
 import imgLokaV60 from '../assets/img/Loka V60.jpg';
 
-import imgBoardGame from '../assets/img/Boardgame.jpg';
-import imgBoardGame2 from '../assets/img/Boardgame2.jpg';
+import imgBoardGame from '../assets/img/BoardGame.jpg';
+import imgBoardGame2 from '../assets/img/BoardGame2.jpg';
 
 export const FOOD_ITEMS = [
   {
