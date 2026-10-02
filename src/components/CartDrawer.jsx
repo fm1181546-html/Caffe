@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { X, Trash2, ShoppingBag, Plus, Minus, Utensils, Clock, Dices } from 'lucide-react'
+import { X, Trash2, ShoppingBag, Plus, Minus, Utensils, Clock, Dices, ArrowLeft } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { formatPrice } from '../data/menuData'
 import { useNavigate } from 'react-router-dom'
@@ -22,6 +22,11 @@ export default function CartDrawer() {
   const handleCheckout = () => {
     closeCart()
     navigate('/checkout')
+  }
+
+  const handleReturnToMenu = () => {
+    closeCart()
+    navigate('/menu')
   }
 
   const renderVisual = (item) => {
@@ -132,6 +137,12 @@ export default function CartDrawer() {
               onClick={handleCheckout}
             >
               Lanjut ke Pembayaran
+            </button>
+            <button
+              className="btn btn-secondary cart-drawer__menu-btn"
+              onClick={handleReturnToMenu}
+            >
+              <ArrowLeft size={16} /> Kembali ke Menu
             </button>
           </div>
         )}

@@ -199,6 +199,10 @@
 }
 .cart-drawer__note-tax { font-size: 0.75rem; color: var(--clr-text-dim); }
 
+.cart-drawer__menu-btn {
+  width: 100%;
+}
+
 @media (max-width: 480px) {
   .cart-drawer { width: 100vw; }
 }

@@ -110,8 +110,8 @@ export default function Checkout() {
         {step === 1 && (
           <div className="checkout-layout">
             <div className="checkout-form-section">
-              <button className="btn btn-ghost btn-sm checkout-back" onClick={() => navigate(-1)}>
-                <ArrowLeft size={16} /> Kembali
+              <button className="btn btn-ghost btn-sm checkout-back" onClick={() => navigate('/menu')}>
+                <ArrowLeft size={16} /> Kembali ke Menu
               </button>
               <h2>Detail <span className="gradient-text">Pesanan</span></h2>
 
