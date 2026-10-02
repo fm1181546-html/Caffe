@@ -1,0 +1,587 @@
+/* ============ CHECKOUT PAGE ============ */
+.checkout-page {
+  min-height: 80vh;
+  padding-block: var(--space-2xl) var(--space-3xl);
+  width: 100%;
+}
+
+.checkout-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  width: min(100%, 1100px);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* Steps Indicator */
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 1rem var(--space-lg);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkout-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clr-text-dim);
+  transition: color var(--transition-base);
+}
+
+.checkout-step.active {
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+
+.checkout-step.done {
+  color: var(--clr-accent-2);
+}
+
+.checkout-step__dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--clr-surface);
+  border: 2px solid var(--clr-border);
+  flex-shrink: 0;
+}
+
+.checkout-step.active .checkout-step__dot {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.checkout-step.done .checkout-step__dot {
+  border-color: var(--clr-accent-2);
+  background: rgba(82, 183, 136, 0.1);
+  color: var(--clr-accent-2);
+}
+
+/* Layout Grid Desktop & Mobile Sync */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-xl);
+  align-items: start;
+  width: 100%;
+}
+
+.checkout-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
+  min-width: 0;
+}
+
+.checkout-back {
+  align-self: flex-start;
+}
+
+.checkout-form-section h2 {
+  font-size: 1.75rem;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+/* Errors */
+.form-input--error {
+  border-color: #f87171 !important;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: #f87171;
+  margin-top: 2px;
+}
+
+/* Payment Methods */
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.payment-method:hover {
+  border-color: var(--clr-border-2);
+}
+
+.payment-method--active {
+  border-color: var(--clr-primary);
+  background: rgba(200, 150, 62, 0.07);
+}
+
+.payment-method__icon {
+  color: var(--clr-primary);
+  flex-shrink: 0;
+}
+
+.payment-method__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  margin: 0;
+}
+
+.payment-method__desc {
+  font-size: 0.78rem;
+  color: var(--clr-text-muted);
+  margin: 0;
+}
+
+.payment-method__radio {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--clr-border);
+  flex-shrink: 0;
+}
+
+.payment-method__radio.checked {
+  border-color: var(--clr-primary);
+  background: var(--clr-primary);
+  box-shadow: inset 0 0 0 4px var(--clr-bg-2);
+}
+
+/* Summary Sidebar */
+.checkout-summary {
+  width: 100%;
+  padding: var(--space-lg);
+  position: sticky;
+  top: calc(var(--nav-h, 70px) + 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-sizing: border-box;
+}
+
+.checkout-summary h4 {
+  font-size: 1rem;
+  color: var(--clr-text);
+  border-bottom: 1px solid var(--clr-border);
+  padding-bottom: var(--space-sm);
+  margin: 0;
+}
+
+.checkout-summary__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkout-summary__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+}
+
+.checkout-summary__item-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-text);
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.checkout-summary__item-detail {
+  color: var(--clr-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.checkout-summary__divider {
+  height: 1px;
+  background: var(--clr-border);
+}
+
+.checkout-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.checkout-summary__amount {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--clr-primary);
+}
+
+/* Confirm Card */
+.checkout-confirm {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 680px;
+  margin-inline: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--clr-border);
+  font-size: 0.875rem;
+}
+
+.confirm-row span {
+  color: var(--clr-text-muted);
+}
+
+.confirm-row strong {
+  color: var(--clr-text);
+  text-align: right;
+  word-break: break-word;
+}
+
+.confirm-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--clr-text);
+  padding: 6px 0;
+}
+
+.confirm-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-md);
+  border-top: 2px solid var(--clr-border);
+  font-weight: 600;
+}
+
+.confirm-total__amount {
+  font-size: 1.4rem;
+  color: var(--clr-primary);
+}
+
+.confirm-actions {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.confirm-actions button {
+  flex: 1;
+}
+
+/* Success View */
+.checkout-success {
+  max-width: 500px;
+  margin-inline: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.success-icon {
+  margin-bottom: -0.5rem;
+}
+
+.checkout-success h2 {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.success-order-id {
+  padding: var(--space-md) var(--space-xl);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.success-order-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--clr-text-muted);
+}
+
+.success-order-number {
+  font-size: 1.75rem;
+  color: var(--clr-primary);
+  font-weight: 700;
+}
+
+.success-info {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.success-info p {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.success-actions {
+  display: flex;
+  gap: var(--space-sm);
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Elegan Printable Thermal Receipt */
+.printable-receipt {
+  background: #ffffff;
+  color: #111111;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 330px;
+  margin: 1rem auto;
+  padding: 1.25rem 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.receipt-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #1e293b;
+  letter-spacing: 1px;
+}
+
+.receipt-address {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #94a3b8;
+  margin: 0.6rem 0;
+}
+
+.receipt-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.75rem;
+  color: #334155;
+}
+
+.receipt-meta-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.receipt-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.receipt-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.receipt-item-title {
+  font-weight: 700;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.receipt-item-qty {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.receipt-item-price {
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.receipt-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-top: 2px;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+/* Responsif Mobile Layout Adjustment */
+@media (max-width: 868px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .checkout-summary {
+    position: static;
+    order: 2;
+  }
+
+  .checkout-form-section {
+    order: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout-page {
+    padding-block: var(--space-lg) var(--space-2xl);
+  }
+
+  .checkout-steps {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .checkout-step span {
+    font-size: 0.72rem;
+  }
+
+  .checkout-step__dot {
+    width: 22px;
+    height: 22px;
+    font-size: 0.68rem;
+  }
+
+  .checkout-confirm {
+    padding: var(--space-md);
+  }
+
+  .confirm-actions {
+    flex-direction: column;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+
+  .success-actions button {
+    width: 100%;
+  }
+}
+
+/* Media Query untuk Cetak Kertas / Struk Thermal */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .printable-receipt,
+  .printable-receipt * {
+    visibility: visible;
+  }
+
+  .printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+}
